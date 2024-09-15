@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlackWear | Ecommerce</title>
     <link rel="stylesheet" href="./styles/globals.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
 </head>
 <body>
     <div class="navbar show-menu">
@@ -17,7 +18,7 @@
                     <li>Produtos</li>
                     <li>Sobre</li>
                     <li>Contato</li>
-                    <li>Login</li>
+                    <li id="loginBtn">Login</li>
                 </ul>
             </nav>
             <div class="nav-icon-container">
@@ -43,6 +44,15 @@
             </div>
         </div>
     </header>
+    <div class="modal-bg" id="modalBg">
+        <div class="modal">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <h2>Login</h2>
+            <input type="text" placeholder="Usuário" />
+            <input type="password" placeholder="Senha" />
+            <button>&rarr;</button>
+        </div>
+    </div>
 
     <!-- Main Content -->
      <main>
@@ -57,7 +67,7 @@
         </div>
 
         <div>
-            <div class="page-inner-content">
+            <div class="page-inner-content" id="products-section">
                 <h3 class="section-title">Seleção de produtos</h3>
                 <div class="subtitle-underline"></div>
                 <div class="cols cols-4">
@@ -97,6 +107,31 @@
         menuButton.addEventListener('click', () => {
             navbar.classList.toggle("show-menu");
         })
+
+        const modalBg = document.getElementById("modalBg");
+        const loginBtn = document.getElementById("loginBtn");
+        const closeBtn = document.getElementById("closeBtn");
+
+        loginBtn.addEventListener("click", () => {
+            modalBg.style.display = "flex";
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modalBg.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modalBg) {
+                modalBg.style.display = "none";
+            }
+        });
+
+        const productsBtn = document.querySelector("nav ul li:nth-child(2)");
+        const productsSection = document.getElementById("products-section");
+
+        productsBtn.addEventListener("click", () => {
+            productsSection.scrollIntoView({ behavior: "smooth" });
+        });
     </script>
 </body>
 </html>
