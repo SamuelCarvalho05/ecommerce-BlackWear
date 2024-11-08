@@ -10,6 +10,86 @@ body{
 
 /* Header */
 
+.container{
+    top: 20px;
+    width: 100%;
+    height: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    background-color: #d2d2d2;
+    left: 1825px;
+    width: 50px;
+    height: 24px;
+    border-radius: 200px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+.button::before{
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    margin: 2px;
+    transition: 0.2s;
+}
+input:checked + .button{
+    background-color: #20096d;
+}
+input:checked + .button::before{
+    transform: translateX(25px);
+}
+input{
+    display: none;
+}
+
+/* Modo Escuro */
+.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-mode .navbar {
+    background-color: #333;
+}
+
+.dark-mode header {
+    background-image: radial-gradient(#333, #1a1a1a);
+}
+
+.dark-mode .gray-background {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .footer-content {
+    color: #aaa;
+}
+
+.dark-mode main {
+    background-color: #333;
+}
+
+.dark-mode .product {
+    color: #ddd;
+}
+
+.dark-mode .product-price span {
+    color: #ddd;
+}
+
+.dark-mode .section-title {
+    color: #ddd;
+}
+
+.dark-mode nav ul li {
+    color: #ddd;
+}
+
 .header-inner-content{
     max-width: 1300px;
     margin-left: auto;
